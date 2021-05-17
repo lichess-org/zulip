@@ -69,10 +69,11 @@
 
         .table_fix_head {
             padding: 0 !important;
-            /* 100px = space occupied by `recent_topics_filter_buttons`( ~49px)
+            /* 143px = space occupied by `recent_topics_filter_buttons`( ~49px)
                      + give user some extra space at the bottom so that last
-                       topic row is clearly visible. */
-            max-height: calc(100vh - 100px);
+                       topic row is clearly visible
+                     + fixed compose box at bottom. */
+            max-height: calc(100vh - 141px);
         }
 
         .table_fix_head table {

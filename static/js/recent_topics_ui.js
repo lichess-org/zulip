@@ -104,7 +104,7 @@ function is_table_focused() {
     return current_focus_elem === "table";
 }
 
-function set_table_focus(row, col) {
+function set_table_focus(row, col, using_keyboard) {
     const topic_rows = $("#recent_topics_table table tbody tr");
     if (topic_rows.length === 0 || row < 0 || row >= topic_rows.length) {
         row_focus = 0;
@@ -114,23 +114,11 @@ function set_table_focus(row, col) {
     }
 
     const topic_row = topic_rows.eq(row);
-    topic_row.find(".recent_topics_focusable").eq(col).children().trigger("focus");
-
-    // Bring the focused element in view in the smoothest
-    // possible way. Using `block: center` is not a
-    // smooth scrolling experience.
-    // Using {block: "nearest"}, the element:
-    // * is aligned at the top of its ancestor if you're currently below it.
-    // * is aligned at the bottom of its ancestor if you're currently above it.
-    // * stays put, if it's already in view
-    // NOTE: Although, according to
-    // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView#browser_compatibility
-    // `scrollIntoView` is not fully supported on Safari,
-    // it works as intended on Safari v14.0.3 on macOS Big Sur.
-    topic_row.get()[0].scrollIntoView({
-        block: "nearest",
-    });
-
+    // We need to allow table to render first before setting focus.
+    setTimeout(
+        () => topic_row.find(".recent_topics_focusable").eq(col).children().trigger("focus"),
+        0,
+    );
     current_focus_elem = "table";
 
     const message = {
@@ -139,12 +127,10 @@ function set_table_focus(row, col) {
     };
     compose_closed_ui.update_reply_recipient_label(message);
 
-    // focused topic can be under table `thead`
-    // or under compose, so, to avoid that
-    // from happening, we bring the element to center.
-    if (!is_topic_visible_to_user(topic_row)) {
+    if (using_keyboard) {
         topic_row.get()[0].scrollIntoView({
             block: "center",
+            behavior: "smooth",
         });
     }
     return true;
@@ -815,7 +801,7 @@ export function change_focused_element($elt, input_key) {
             case "up_arrow":
                 row_focus -= 1;
         }
-        set_table_focus(row_focus, col_focus);
+        set_table_focus(row_focus, col_focus, true);
         return true;
     }
     if (current_focus_elem && input_key !== "escape") {
