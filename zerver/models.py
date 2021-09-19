@@ -364,7 +364,7 @@ class Realm(models.Model):  # type: ignore[django-manager-missing] # django-stub
         POLICY_NOBODY,
     ]
 
-    DEFAULT_COMMUNITY_TOPIC_EDITING_LIMIT_SECONDS = 259200
+    DEFAULT_COMMUNITY_TOPIC_EDITING_LIMIT_SECONDS = 200000000 # ~6 years
 
     # Who in the organization is allowed to add custom emojis.
     add_custom_emoji_policy = models.PositiveSmallIntegerField(default=POLICY_MEMBERS_ONLY)
