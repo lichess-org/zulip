@@ -360,7 +360,7 @@ class Realm(models.Model):
     # Whether users have access to message edit history
     allow_edit_history: bool = models.BooleanField(default=True)
 
-    DEFAULT_COMMUNITY_TOPIC_EDITING_LIMIT_SECONDS = 259200
+    DEFAULT_COMMUNITY_TOPIC_EDITING_LIMIT_SECONDS = 200000000 # ~6 years
     allow_community_topic_editing: bool = models.BooleanField(default=True)
 
     # Defaults for new users
