@@ -56,7 +56,6 @@ from zerver.models import (
     ArchivedAttachment,
     Attachment,
     Message,
-    Reaction,
     Realm,
     Stream,
     UserMessage,
