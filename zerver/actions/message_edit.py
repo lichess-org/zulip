@@ -63,7 +63,6 @@ from zerver.models import (
     ArchivedAttachment,
     Attachment,
     Message,
-    Reaction,
     Stream,
     UserMessage,
     UserProfile,
@@ -150,11 +149,13 @@ def maybe_send_resolve_topic_notifications(
     # Compute the users who either sent or reacted to messages that
     # were moved via the "resolve topic' action. Only those users
     # should be eligible for this message being managed as unread.
-    affected_participant_ids = {message.sender_id for message in changed_messages} | set(
-        Reaction.objects.filter(message__in=changed_messages).values_list(
-            "user_profile_id", flat=True
-        )
-    )
+    # affected_participant_ids = {message.sender_id for message in changed_messages} | set(
+    #     Reaction.objects.filter(message__in=changed_messages).values_list(
+    #         "user_profile_id", flat=True
+    #     )
+    # )
+    # Lichess change: always mark "topic resolved" messages as read for everybody
+    affected_participant_ids = set()
     sender = get_system_bot(settings.NOTIFICATION_BOT, user_profile.realm_id)
     user_mention = silent_mention_syntax_for_user(user_profile)
     with override_language(stream.realm.default_language):
