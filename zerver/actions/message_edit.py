@@ -200,6 +200,8 @@ def maybe_send_resolve_topic_notifications(
             )
         )
     )
+    # Lichess change: always mark "topic resolved" messages as read for everybody
+    affected_participant_ids = set()
     sender = get_system_bot(settings.NOTIFICATION_BOT, user_profile.realm_id)
     user_mention = silent_mention_syntax_for_user(user_profile)
     with override_language(stream.realm.default_language):
