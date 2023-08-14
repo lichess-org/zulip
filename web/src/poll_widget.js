@@ -25,7 +25,7 @@ export function activate({
         comma_separated_names: people.get_full_names_for_poll_option,
         report_error_function: blueslip.warn,
         anonymous,
-        rigid
+        rigid,
     });
 
     function update_edit_controls() {

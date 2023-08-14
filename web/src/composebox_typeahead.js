@@ -419,10 +419,10 @@ export const slash_commands = [
         placeholder: $t({defaultMessage: "Question"}),
     },
     {
-      text: $t({defaultMessage: "/poll-anon (Anonymous poll)"}),
-      name: "poll-anon",
-      aliases: "",
-      placeholder: $t({defaultMessage: "Question"}),
+        text: $t({defaultMessage: "/poll-anon (Anonymous poll)"}),
+        name: "poll-anon",
+        aliases: "",
+        placeholder: $t({defaultMessage: "Question"}),
     },
     {
         text: $t({defaultMessage: "/poll-anon-rigid (Anonymous, no new options)"}),
