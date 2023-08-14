@@ -407,8 +407,26 @@ export const slash_commands = [
         aliases: "",
     },
     {
-        text: $t({defaultMessage: "/poll Where should we go to lunch today? (Create a poll)"}),
+        text: $t({defaultMessage: "/poll (Create a poll)"}),
         name: "poll",
+        aliases: "",
+        placeholder: $t({defaultMessage: "Question"}),
+    },
+    {
+        text: $t({defaultMessage: "/poll-closed (No create option)"}),
+        name: "poll-closed",
+        aliases: "",
+        placeholder: $t({defaultMessage: "Question"}),
+    },
+    {
+      text: $t({defaultMessage: "/poll-anon (Anonymous poll)"}),
+      name: "poll-anon",
+      aliases: "",
+      placeholder: $t({defaultMessage: "Question"}),
+    },
+    {
+        text: $t({defaultMessage: "/poll-anon-closed (Anonymous, no create option)"}),
+        name: "poll-anon-closed",
         aliases: "",
         placeholder: $t({defaultMessage: "Question"}),
     },

@@ -19,6 +19,8 @@ export class PollData {
         options,
         comma_separated_names,
         report_error_function,
+        anonymous,
+        closed,
     }) {
         this.message_sender_id = message_sender_id;
         this.me = current_user_id;
@@ -27,6 +29,8 @@ export class PollData {
         this.input_mode = is_my_poll; // for now
         this.comma_separated_names = comma_separated_names;
         this.report_error_function = report_error_function;
+        this.anonymous = anonymous;
+        this.closed = closed;
 
         if (question) {
             this.set_question(question);
@@ -70,7 +74,7 @@ export class PollData {
 
             options.push({
                 option: obj.option,
-                names: this.comma_separated_names(voters),
+                names: this.anonymous ? [] : this.comma_separated_names(voters),
                 count: voters.length,
                 key,
                 current_user_vote,
@@ -80,6 +84,8 @@ export class PollData {
         const widget_data = {
             options,
             question: this.poll_question,
+            anonymous: this.anonymous,
+            closed: this.closed,
         };
 
         return widget_data;

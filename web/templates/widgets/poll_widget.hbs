@@ -14,9 +14,11 @@
     </div>
     <ul class="poll-widget">
     </ul>
+    {{#unless closed}}
     <div class="poll-option-bar">
         <input type="text" class="poll-option" placeholder="{{t 'New option'}}" />
         <button class="poll-option">{{t "Add option" }}</button>
     </div>
+    {{/unless}}
     <br />
 </div>

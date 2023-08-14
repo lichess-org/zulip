@@ -19,6 +19,8 @@ declare export class PollData {
         options: interface {entries(): Iterable<[number, string]>},
         comma_separated_names: (user_ids: number[]) => string,
         report_error_function: (msg: string) => void,
+        anonymous: boolean,
+        closed: boolean,
     }): void;
 
     set_question(question: string): void;
@@ -40,6 +42,8 @@ declare export class PollData {
             key: string,
             current_user_vote: boolean,
         }>,
+        anonymous: boolean,
+        closed: boolean,
     };
 
     handle_event(sender_id: number, data: PollEvent): void;

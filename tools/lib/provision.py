@@ -88,9 +88,7 @@ elif vendor == "ubuntu" and os_version == "22.04":  # jammy
     POSTGRESQL_VERSION = "14"
 elif vendor == "neon" and os_version == "20.04":  # KDE Neon
     POSTGRESQL_VERSION = "12"
-elif vendor == "fedora" and os_version == "33":
-    POSTGRESQL_VERSION = "13"
-elif vendor == "fedora" and os_version == "34":
+elif vendor == "fedora":
     POSTGRESQL_VERSION = "13"
 elif vendor == "rhel" and os_version.startswith("7."):
     POSTGRESQL_VERSION = "10"

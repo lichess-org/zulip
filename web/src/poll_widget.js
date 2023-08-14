@@ -12,7 +12,7 @@ import * as people from "./people";
 export function activate({
     $elem,
     callback,
-    extra_data: {question = "", options = []} = {},
+    extra_data: {question = "", options = [], anonymous = false, closed = false} = {},
     message,
 }) {
     const is_my_poll = people.is_my_user_id(message.sender_id);
@@ -24,6 +24,8 @@ export function activate({
         options,
         comma_separated_names: people.get_full_names_for_poll_option,
         report_error_function: blueslip.warn,
+        anonymous,
+        closed
     });
 
     function update_edit_controls() {
@@ -117,7 +119,7 @@ export function activate({
     }
 
     function build_widget() {
-        const html = render_widgets_poll_widget();
+        const html = render_widgets_poll_widget(poll_data.get_widget_data());
         $elem.html(html);
 
         $elem.find("input.poll-question").on("keyup", (e) => {
