@@ -195,6 +195,8 @@ class WidgetContentTestCase(ZulipTestCase):
             extra_data=dict(
                 options=["Red", "Green", "Blue", "Yellow"],
                 question="What is your favorite color?",
+                anonymous=False,
+                rigid=False,
             ),
         )
 
@@ -214,6 +216,8 @@ class WidgetContentTestCase(ZulipTestCase):
             extra_data=dict(
                 options=[],
                 question="",
+                anonymous=False,
+                rigid=False,
             ),
         )
 
