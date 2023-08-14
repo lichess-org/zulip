@@ -20,7 +20,7 @@ declare export class PollData {
         comma_separated_names: (user_ids: number[]) => string,
         report_error_function: (msg: string) => void,
         anonymous: boolean,
-        closed: boolean,
+        rigid: boolean,
     }): void;
 
     set_question(question: string): void;
@@ -43,7 +43,7 @@ declare export class PollData {
             current_user_vote: boolean,
         }>,
         anonymous: boolean,
-        closed: boolean,
+        rigid: boolean,
     };
 
     handle_event(sender_id: number, data: PollEvent): void;

@@ -20,7 +20,7 @@ export class PollData {
         comma_separated_names,
         report_error_function,
         anonymous,
-        closed,
+        rigid,
     }) {
         this.message_sender_id = message_sender_id;
         this.me = current_user_id;
@@ -30,7 +30,7 @@ export class PollData {
         this.comma_separated_names = comma_separated_names;
         this.report_error_function = report_error_function;
         this.anonymous = anonymous;
-        this.closed = closed;
+        this.rigid = rigid;
 
         if (question) {
             this.set_question(question);
@@ -85,7 +85,7 @@ export class PollData {
             options,
             question: this.poll_question,
             anonymous: this.anonymous,
-            closed: this.closed,
+            rigid: this.rigid,
         };
 
         return widget_data;

@@ -9,8 +9,8 @@ import * as zform from "./zform";
 
 const widgets = new Map([
     ["poll-anon", poll_widget],
-    ["poll-closed", poll_widget],
-    ["poll-anon-closed", poll_widget],
+    ["poll-rigid", poll_widget],
+    ["poll-anon-rigid", poll_widget],
     ["poll", poll_widget],
     ["todo", todo_widget],
     ["zform", zform],

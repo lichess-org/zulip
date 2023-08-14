@@ -413,8 +413,8 @@ export const slash_commands = [
         placeholder: $t({defaultMessage: "Question"}),
     },
     {
-        text: $t({defaultMessage: "/poll-closed (No create option)"}),
-        name: "poll-closed",
+        text: $t({defaultMessage: "/poll-rigid (No new options)"}),
+        name: "poll-rigid",
         aliases: "",
         placeholder: $t({defaultMessage: "Question"}),
     },
@@ -425,8 +425,8 @@ export const slash_commands = [
       placeholder: $t({defaultMessage: "Question"}),
     },
     {
-        text: $t({defaultMessage: "/poll-anon-closed (Anonymous, no create option)"}),
-        name: "poll-anon-closed",
+        text: $t({defaultMessage: "/poll-anon-rigid (Anonymous, no new options)"}),
+        name: "poll-anon-rigid",
         aliases: "",
         placeholder: $t({defaultMessage: "Question"}),
     },
