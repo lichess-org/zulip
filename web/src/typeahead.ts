@@ -27,10 +27,10 @@ export type EmojiItem = {
 export const popular_emojis = [
     "1f44d", // +1
     "1f389", // tada
-    "1f642", // slight_smile
+    "1f419", // octopus
     "2764", // heart
     "1f6e0", // working_on_it
-    "1f419", // octopus
+    "2705", // check
 ];
 
 export function get_popular_emojis(): EmojiItem[] {
